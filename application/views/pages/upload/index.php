@@ -1,8 +1,11 @@
 <div class="container">
 
-
-    <h1>Upload a new document</h1>
-    <h4>Use this page to upload new documents for the news and investors' pages.</h4>
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Upload a new document</h1>
+            <h4>Use this page to upload new documents for the news and investors' pages.</h4>
+        </div>
+    </div>
 
     <br>
 
@@ -41,10 +44,10 @@
                                data-content="The title displays as the link to the article. It is also the heading shown once the article has been opened.">
                             Title&nbsp;&nbsp;<i class="fa fa-question-circle"></i></label>
                         <input id="upload-title" type="text" class="form-control" name="title"
-                               placeholder="Enter a title for the news article" maxlength="128" size="128" required/>
+                               placeholder="Enter a title for the news article" maxlength="128" size="128" required value="<?php echo $this->input->post('title'); ?>"/>
                     </div>
                     <div class="form-group">
-                        <label for="upload-summary" data-container="body" title="What's the summary?"
+                        <label for="upload-news-summary" data-container="body" title="What's the summary?"
                                data-toggle="popover"
                                data-trigger="hover" data-placement="right"
                                data-content="The summary of an article is the short piece of introduction text displayed in the article list before opening.">
@@ -52,18 +55,21 @@
                             &nbsp;&nbsp;<i class="fa fa-question-circle"></i>
                         </label>
                         <input id="upload-news-summary" type="text" class="form-control" name="summary"
-                               placeholder="Enter a summary for the news article" maxlength="128" size="128" required/>
+                               placeholder="Enter a summary for the news article" maxlength="128" size="128" required value="<?php echo $this->input->post('summary'); ?>"/>
                     </div>
                     <div class="form-group">
-                        <label for="upload-content">Content&nbsp;&nbsp;<i
+                        <label for="upload-news-content">Content&nbsp;&nbsp;<i
                                     class="fa fa-question-circle"></i></label>
                         <textarea id="upload-news-content" name="article_content" rows="5" class="form-control"
-                                  placeholder="Enter content displayed on the news page" required></textarea>
+                                  placeholder="Enter content displayed on the news page" required><?php $this->input->post('article_content') ? $this->input->post('article_content') : false; ?></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="upload-date">Set the upload date</label>
+                        <label for="date_created">Set the upload date</label>
                         <div class="input-group date">
-                            <input type="text" class="form-control" value="<?php echo date('d-m-Y'); ?>" name="date_created" required>
+                            <input type="text" class="form-control"
+                                   value="<?php $this->input->post('date_created') ? $this->input->post('date_created') : date('d-m-Y'); ?>"
+                                   id="date_created"
+                                   name="date_created" required>
                             <div class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
                             </div>
@@ -88,16 +94,17 @@
 
 
                     <h4>Add files</h4>
-                    <button id="add-file-upload" type="button" class="btn btn-success"><i class="fa fa-plus-circle"></i> New file</button>
-
-                    <br><br>
 
                     <div class="file-uploads">
                         <div class="form-group file-upload">
-                            <label for="">File 1</label> <br>
+                            <label for="document1"><i class="fa fa-file-o"></i> <b>Document 1</b></label> <br>
                             <input type="file" name="document1" id="document1" style="display: inline-block">
                         </div>
                     </div>
+
+                    <hr>
+
+                    <button id="add-file-upload" type="button" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add another file</button>
 
                 </fieldset>
 
@@ -105,6 +112,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
+                <a role="button" href="<?php site_url('upload'); ?>" class="btn btn-danger">Cancel</a>
                 <button class="btn btn-primary">Save</button>
             </div>
         </div>

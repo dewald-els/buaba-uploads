@@ -24,4 +24,20 @@ class News extends MY_Controller {
         $this->js[] = 'assets/js/news.js';
 		$this->main_view('News');
 	}
+
+	public function disable_news_item()
+    {
+        $news_id = $this->input->post('news_id');
+        $this->load->model('news_m');
+        $this->news_m->disable($news_id);
+        echo json_encode(true);
+    }
+
+    public function enable_news_item()
+    {
+        $news_id = $this->input->post('news_id');
+        $this->load->model('news_m');
+        $this->news_m->enable($news_id);
+        echo json_encode(true);
+    }
 }

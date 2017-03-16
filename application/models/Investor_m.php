@@ -29,9 +29,26 @@ class Investor_m extends CI_Model
         return $news;
     }
 
-    public function save()
+    public function save($article)
     {
+        $this->db->insert($this->table, $article);
+        return $this->db->insert_id();
+    }
 
+    public function disable($news_id)
+    {
+        $this->db->where(array(
+            $this->pk => $news_id
+        ));
+        $this->db->update($this->table, array('is_active' => '0'));
+    }
+
+    public function enable($news_id)
+    {
+        $this->db->where(array(
+            $this->pk => $news_id
+        ));
+        $this->db->update($this->table, array('is_active' => '1'));
     }
 
 }

@@ -38,4 +38,22 @@ class Document_m extends CI_Model {
         return $insert_id;
     }
 
+    public function link_news_doc($news_id, $doc_id)
+    {
+        $doc_link = new stdClass();
+        $doc_link->doc_id = $doc_id;
+        $doc_link->news_id = $news_id;
+        $this->db->insert('news_doc', $doc_link);
+        return $this->db->insert_id();
+    }
+
+    public function link_investor_doc($investor_news_id, $doc_id)
+    {
+        $doc_link = new stdClass();
+        $doc_link->doc_id = $doc_id;
+        $doc_link->investor_id = $investor_news_id;
+        $this->db->insert('investor_doc', $doc_link);
+        return $this->db->insert_id();
+    }
+
 }

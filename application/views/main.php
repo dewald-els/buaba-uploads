@@ -11,9 +11,12 @@
 
 </head>
 <body>
+<input type="hidden" id="site-url" value="<?php echo site_url(); ?>">
 
 <?php $this->load->view('modules/navbar/index'); ?>
-
+<?php $this->load->view('modules/modals/logout'); ?>
+<?php $this->load->view('modules/modals/delete_item'); ?>
+<?php $this->load->view('modules/modals/enable_item'); ?>
 
 <?php foreach ($sub_views as $view): ?>
     <?php $this->load->view($view); ?>

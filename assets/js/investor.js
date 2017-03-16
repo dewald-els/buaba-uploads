@@ -24,7 +24,7 @@ function enableItem(id) {
 }
 
 function completeDelete() {
-    $.post($('#site-url').val() + 'news/disable_news_item', {
+    $.post($('#site-url').val() + 'investor/disable_investor_item', {
         news_id: newsId
     }, function (response) {
         console.log(response);
@@ -34,7 +34,7 @@ function completeDelete() {
 }
 
 function completeEnable() {
-    $.post($('#site-url').val() + 'news/enable_news_item', {
+    $.post($('#site-url').val() + 'investor/enable_investor_item', {
         news_id: newsId
     }, function (response) {
         console.log(response);
