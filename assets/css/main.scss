@@ -1,0 +1,11 @@
+//@import "../lib/bootstrap/css/bootstrap.min";
+//@import url("//fonts.googleapis.com/css?family=Raleway:100,300,400,700");
+@import "../lib/bootswatch/paper";
+
+body {
+  padding-top: 75px;
+}
+
+.btn-flat {
+  box-shadow: none;
+}

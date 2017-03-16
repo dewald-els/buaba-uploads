@@ -1,0 +1,22 @@
+{
+  "name": "bauba uploads",
+  "description": "Upload app for Bauba website",
+  "main": "index.php",
+  "keywords": [
+    "Bauba"
+  ],
+  "authors": [
+    "Sumo Development"
+  ],
+  "license": "MIT",
+  "homepage": "http://baubaplatinum.co.za",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "__old/*"
+  ]
+}
